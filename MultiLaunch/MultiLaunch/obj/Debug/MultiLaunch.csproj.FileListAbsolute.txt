@@ -1,0 +1,17 @@
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\bin\Debug\MultiLaunch.exe.config
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\bin\Debug\MultiLaunch.exe
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\bin\Debug\MultiLaunch.pdb
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.csproj.AssemblyReference.cache
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MainWindow.g.cs
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\App.g.cs
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch_MarkupCompile.cache
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch_MarkupCompile.lref
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MainWindow.baml
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.g.resources
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.Properties.Resources.resources
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.csproj.GenerateResource.cache
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.csproj.CoreCompileInputs.cache
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.exe
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.pdb
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\Edit_App.g.cs
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\Edit_App.baml
