@@ -30,6 +30,12 @@ namespace MultiLaunch
 
             var PresetList = new List<Preset>
             {
+                new Preset(){ Name="Workau tut ochen jestko"},
+                new Preset(){ Name="Pork"},
+                new Preset(){ Name="Work"},
+                new Preset(){ Name="Pork"},
+                new Preset(){ Name="Work"},
+                new Preset(){ Name="Pork"},
                 new Preset(){ Name="Work"},
                 new Preset(){ Name="Pork"},
                 new Preset(){ Name="Work"},
