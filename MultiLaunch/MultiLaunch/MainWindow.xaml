@@ -9,7 +9,7 @@
 
         WindowStyle="None"
         AllowsTransparency="True"
-        ResizeMode="NoResize"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         FontFamily="Inter"
         FontSize="20">
@@ -32,7 +32,9 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style x:Key="ButtonStyle_0" TargetType="{x:Type Button}">
+
+
+            <Style x:Key="ButtonStyle_0" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -102,26 +104,31 @@
 
             <Grid x:Name="TopBar" Grid.Row="2" Grid.Column="1" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="450"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="400*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10">
-                    <TextBlock Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                <Border Grid.Column="0" CornerRadius="10">
+                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="20" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/arrow_left.png"></Image>
+                            <TextBlock Text="Назад" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                        </StackPanel>
+                    </Button>
                 </Border>
 
                 <Border Grid.Column="1"></Border>
 
                 <Border Grid.Column="2" Background="#77B3E5" CornerRadius="10">
-                    <TextBlock Text="Мои пресеты" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                    <TextBlock Text="Мои пресеты" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                 </Border>
 
                 <Border Grid.Column="3"></Border>
 
-                <Border Grid.Column="4" Background="#FFFFFF" CornerRadius="10">
+                <Border Grid.Column="4" CornerRadius="10">
                     <Button Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                         <TextBlock Text="?" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                     </Button>
@@ -134,66 +141,64 @@
 
             <!---->
 
-            <!--<Grid x:Name="PresetList" Grid.Row="4" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Работа" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                </Border>
-
-                <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
-
-                <Border Grid.Column="2" Background="#77B3E5" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Y" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                </Border>
-
-                <Border Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
-
-                <Border Grid.Column="4" Background="#E1B4B7" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Х" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                </Border>
-            </Grid>-->
-
-            <ListBox x:Name="PresetMenu" Grid.Row="4" Grid.Column="1" Background="Transparent" BorderBrush="Transparent">
+            <ListBox x:Name="PresetMenu" Grid.Row="4" Grid.Column="1" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Margin" Value="0 5 0 5"></Setter>
+                        <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Grid HorizontalAlignment="Stretch">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                        <Grid Width="{Binding Path=ActualWidth, ElementName=PresetMenu}"  HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="450*"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="30*"/>
+                            </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="300">
-                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                                </Border>
 
-                                <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
+                            <Border Grid.Column="0" CornerRadius="10">
+                                <Button x:Name="Elem_" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=Elem_}" Margin="10 0">
 
-                                <Border Grid.Column="2" Background="#77B3E5" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <TextBlock Text="Y" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                                </Border>
+                                        <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/launch.png" HorizontalAlignment="Left"></Image>
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
 
-                                <Border Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
+                            <Border Grid.Column="1"></Border>
 
-                                <Border Grid.Column="4" Background="#E1B4B7" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <TextBlock Text="X" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
-                                </Border>
-                            </Grid>
-                        </StackPanel>
+                            <Border Grid.Column="2" CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
+                                    <Image Width="40" Source="C://Users/Jaimie/Downloads/Icons_Curs/edit.png"></Image>
+                                </Button>
+                            </Border>
+
+                            <Border Grid.Column="3"></Border>
+
+                            <Border Grid.Column="4" CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                                    <Image Width="40" Source="C://Users/Jaimie/Downloads/Icons_Curs/delete.png"></Image>
+                                </Button>
+                            </Border>
+                        </Grid>
+
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
+            
             <!---->
 
             <Border Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
@@ -202,20 +207,30 @@
 
             <Grid x:Name="BottomBar" Grid.Row="6" Grid.Column="1" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="210*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="210*"/>
+                    <ColumnDefinition Width="155*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" Background="#77B3E5" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                <Border Grid.Column="0" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/add-item.png"></Image>
+                            <TextBlock Text="Создать новый" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                        </StackPanel>
+                    </Button>
                 </Border>
 
                 <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
 
-                <Border Grid.Column="2" Background="#E1B4B7" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Мои пресеты" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                <Border Grid.Column="2" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/delete.png"></Image>
+                            <TextBlock Text="Удалить все" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                        </StackPanel>
+                    </Button>
                 </Border>
 
                 <Border Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
