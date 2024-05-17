@@ -114,7 +114,7 @@
                 <Border Grid.Column="0" CornerRadius="10">
                     <Button Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="20" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/arrow_left.png"></Image>
+                            <Image Width="20" Grid.Column="0" Source="Assets/edit.png"/>
                             <TextBlock Text="Назад" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                         </StackPanel>
                     </Button>
@@ -172,7 +172,7 @@
                                 <Button x:Name="Elem_" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=Elem_}" Margin="10 0">
 
-                                        <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/launch.png" HorizontalAlignment="Left"></Image>
+                                        <Image Width="30" Grid.Column="0" Source="Assets/launch.png" HorizontalAlignment="Left"></Image>
                                         <TextBlock Grid.Column="1" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10"/>
                                     </StackPanel>
                                 </Button>
@@ -182,7 +182,7 @@
 
                             <Border Grid.Column="2" CornerRadius="10">
                                 <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
-                                    <Image Width="40" Source="C://Users/Jaimie/Downloads/Icons_Curs/edit.png"></Image>
+                                    <Image Width="40" Source="Assets/edit.png"></Image>
                                 </Button>
                             </Border>
 
@@ -190,7 +190,7 @@
 
                             <Border Grid.Column="4" CornerRadius="10">
                                 <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
-                                    <Image Width="40" Source="C://Users/Jaimie/Downloads/Icons_Curs/delete.png"></Image>
+                                    <Image Width="40" Source="Assets/delete.png"></Image>
                                 </Button>
                             </Border>
                         </Grid>
@@ -216,7 +216,7 @@
                 <Border Grid.Column="0" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/add-item.png"></Image>
+                            <Image Width="30" Grid.Column="0" Source="Assets/add-item.png"></Image>
                             <TextBlock Text="Создать новый" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                         </StackPanel>
                     </Button>
@@ -227,7 +227,7 @@
                 <Border Grid.Column="2" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
                         <StackPanel Orientation="Horizontal">
-                            <Image Width="30" Grid.Column="0" Source="C://Users/Jaimie/Downloads/Icons_Curs/delete.png"></Image>
+                            <Image Width="30" Grid.Column="0" Source="Assets/delete.png"></Image>
                             <TextBlock Text="Удалить все" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                         </StackPanel>
                     </Button>
