@@ -8,6 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("%d0%91%d0%b5%d0%b7-%d0%b8%d0%bc%d0%b5%d0%bd%d0%b8-6.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/add-item.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/approve.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/arrow_left.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/delete.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/edit.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/launch.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/launch.png")]
 
 

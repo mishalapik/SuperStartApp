@@ -99,6 +99,14 @@
   <ItemGroup>
     <Resource Include="Assets\Без-имени-6.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\add-item.png" />
+    <Resource Include="Assets\approve.png" />
+    <Resource Include="Assets\arrow_left.png" />
+    <Resource Include="Assets\delete.png" />
+    <Resource Include="Assets\edit.png" />
+    <Resource Include="Assets\launch.ico" />
+    <Resource Include="Assets\launch.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
