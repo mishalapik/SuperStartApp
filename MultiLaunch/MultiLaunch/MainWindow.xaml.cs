@@ -45,12 +45,5 @@ namespace MultiLaunch
 
             PresetMenu.ItemsSource = PresetList;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Edit_App taskWindow = new Edit_App();
-            taskWindow.Show();
-
-            this.Close();
-        }
     }
 }
