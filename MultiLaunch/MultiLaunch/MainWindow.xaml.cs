@@ -93,6 +93,18 @@ namespace MultiLaunch
                 }
             }
         }
+        private void EditPreset_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            string text = button.Tag.ToString();
+            MessageBox.Show($"Редактирование пресета {text}");
+        }
+        private void RemovePreset_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            string text = button.Tag.ToString();
+            MessageBox.Show($"Удаление пресета {text}");
+        }
         private void DeleteAllPresets_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Удаляем все пресеты");
@@ -101,6 +113,7 @@ namespace MultiLaunch
         {
             MessageBox.Show("Создаем новый пресет");
         }
+
 
     }
 }
