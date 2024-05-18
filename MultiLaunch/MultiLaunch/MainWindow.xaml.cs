@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,26 +26,81 @@ namespace MultiLaunch
         {
             public string Name { get; set; }
         };
+
+        string currentPreset;
         public MainWindow()
         {
-            InitializeComponent();
-
             var PresetList = new List<Preset>
             {
-                new Preset(){ Name="Workau tut ochen jestko"},
-                new Preset(){ Name="Pork"},
-                new Preset(){ Name="Work"},
-                new Preset(){ Name="Pork"},
-                new Preset(){ Name="Work"},
-                new Preset(){ Name="Pork"},
-                new Preset(){ Name="Work"},
-                new Preset(){ Name="Pork"},
-                new Preset(){ Name="Work"},
-                new Preset(){ Name="Pork"},
-                new Preset(){ Name="Work"}
+                
             };
+            InitializeComponent();
+            string connectionString = "Data Source=SuperStartApp.db;Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string distinctSelectionPresets = "SELECT DISTINCT preset_name FROM programs;";
+                using (SQLiteCommand command = new SQLiteCommand(distinctSelectionPresets, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PresetList.Add(new Preset() { Name = reader.GetString(0) });
+                        }
+                    }
+                }
+
+            }
+            
+            
 
             PresetMenu.ItemsSource = PresetList;
         }
+        private void OpenProgramsByPreset(string presetName)
+        {
+            string connectionString = "Data Source=SuperStartApp.db;Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string distinctSelectionPresets = $"SELECT program_path FROM programs WHERE preset_name = '{presetName}';";
+                using (SQLiteCommand command = new SQLiteCommand(distinctSelectionPresets, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MessageBox.Show(reader.GetString(0));
+                        }
+                    }
+                }
+
+            }
+        }
+        private void MItem_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button button = sender as Button;
+            StackPanel stackPanel = button.Content as StackPanel;
+            foreach (var child  in stackPanel.Children)
+            {
+                if (child is TextBlock textBlock)
+                {
+                    currentPreset= textBlock.Text;
+
+                    OpenProgramsByPreset(currentPreset);
+                    break;
+                }
+            }
+        }
+        private void DeleteAllPresets_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Удаляем все пресеты");
+        }
+        private void CreateNewPreset_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Создаем новый пресет");
+        }
+
     }
 }
