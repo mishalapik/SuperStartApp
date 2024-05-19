@@ -35,7 +35,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
 
 
-            <Style x:Key="ButtonStyle_0" TargetType="{x:Type Button}">
+        <Style x:Key="ButtonStyle_0" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -135,7 +135,7 @@
                     </Button>
                 </Border>
             </Grid>
-            
+
             <!---->
 
             <Border Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
@@ -199,7 +199,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
+
             <!---->
 
             <Border Grid.Row="5" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>

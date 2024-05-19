@@ -8,6 +8,9 @@ using System.Windows;
 
 namespace MultiLaunch
 {
+    /// <summary>
+    /// Логика взаимодействия для App.xaml
+    /// </summary>
     public partial class App : Application
     {
         

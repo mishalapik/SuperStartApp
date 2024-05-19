@@ -168,7 +168,7 @@
                                     </RowDefinition.Resources>
                                 </RowDefinition>
                             </Grid.RowDefinitions>
-                            
+
                             <Grid Grid.Row="0" Width="{Binding Path=ActualWidth, ElementName=PresetMenu}" HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="390*"/>
@@ -252,8 +252,8 @@
                                                 <Setter Property="CornerRadius" Value="10"/>
                                             </Style>
                                         </TextBox.Resources>
-                                        
-                                        
+
+
                                     </TextBox>
                                 </Border>
                             </Grid>

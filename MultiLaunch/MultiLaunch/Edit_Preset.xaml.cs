@@ -31,9 +31,9 @@ namespace MultiLaunch
 
             var AppList = new List<PresetApp>
             {
-                new PresetApp(){ Name="VS 2022", IconPath="Preset1_Resourses/VS.png", IsEdited = 0},
-                new PresetApp(){ Name="Google Chrome", IconPath="Preset1_Resourses/GC.png", IsEdited = 60},
-                new PresetApp(){ Name="Figma", IconPath="Preset1_Resourses/F.png"}
+                new PresetApp(){ Name="VS 2022", IconPath="P1_Assets/VS.png", IsEdited = 0},
+                new PresetApp(){ Name="Google Chrome", IconPath="P1_Assets/GC.png", IsEdited = 60},
+                new PresetApp(){ Name="Figma", IconPath="P1_Assets/F.png"}
             };
 
             AppMenu.ItemsSource = AppList;
