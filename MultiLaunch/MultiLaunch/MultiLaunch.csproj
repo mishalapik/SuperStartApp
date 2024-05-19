@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Edit_Preset.xaml.cs">
+      <DependentUpon>Edit_Preset.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +72,10 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Edit_Preset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -108,5 +115,14 @@
     <Resource Include="Assets\launch.ico" />
     <Resource Include="Assets\launch.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\discard.png" />
+    <Resource Include="Assets\arrow_up.png" />
+    <Content Include="Assets\delete.svg" />
+    <Resource Include="Preset1_Resourses\F.png" />
+    <Resource Include="Preset1_Resourses\GC.png" />
+    <Resource Include="Preset1_Resourses\VS.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

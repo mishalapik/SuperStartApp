@@ -20,7 +20,7 @@ namespace MultiLaunch
     /// </summary>
     public partial class MainWindow : Window
     {
-        public class Preset
+        public struct Preset
         {
             public string Name { get; set; }
         };

@@ -13,3 +13,6 @@ C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.cspro
 C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.csproj.CoreCompileInputs.cache
 C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.exe
 C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch.pdb
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\Edit_Preset.g.cs
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\Edit_Preset.baml
+C:\Users\Jaimie\source\repos\MultiLaunch\MultiLaunch\obj\Debug\MultiLaunch_Content.g.cs
