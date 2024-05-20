@@ -21,6 +21,7 @@ using static MultiLaunch.MainWindow;
 
 namespace MultiLaunch
 {
+
     public struct PresetApp
     {
         public string IconPath { get; set; }
@@ -31,13 +32,19 @@ namespace MultiLaunch
     
     public partial class Edit_Preset : Window
     {
+        public Edit_Preset()
+        {
+            InitializeComponent();
+        }
+        
         string currentPreset = "None";
         public ObservableCollection<PresetApp> AppList { get; set; }
         public Edit_Preset(string presetNameFromMain)
         {
+            
             InitializeComponent();
             currentPreset = presetNameFromMain;
-
+            TopTextBlock.Text = currentPreset;
             AppList = new ObservableCollection<PresetApp>
             {
                 //new PresetApp() { Name = "VS 2022", IconPath = "P1_Assets/VS.png", IsEdited = 0 },

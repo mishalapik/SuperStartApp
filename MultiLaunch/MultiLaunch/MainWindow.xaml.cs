@@ -117,7 +117,9 @@ namespace MultiLaunch
         }
         private void CreateNewPreset_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Создаем новый пресет");
+            NewPreset preset = new NewPreset();
+            preset.Show();
+            //MessageBox.Show("Создаем новый пресет");
         }
 
 
