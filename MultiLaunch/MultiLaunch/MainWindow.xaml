@@ -74,7 +74,7 @@
         </Style>
     </Window.Resources>
 
-    <Border Background="#D9DAF7">
+    <Border CornerRadius="10" Background="#D9DAF7">
         <Grid x:Name="Main">
             <Grid.RowDefinitions >
                 <RowDefinition Height="20*" />
@@ -94,7 +94,7 @@
 
             <!---->
 
-            <Border Grid.Row="0" Grid.ColumnSpan="3" Background="#77B3E5"></Border>
+            <Border Grid.Row="0" Grid.ColumnSpan="3"  Background="#77B3E5"></Border>
 
             <!---->
 
@@ -170,7 +170,7 @@
 
 
                             <Border Grid.Column="0" CornerRadius="10">
-                                <Button x:Name="Elem_" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
+                                <Button Click="MItem_Click" x:Name="Elem_" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=Elem_}" Margin="10 0">
 
                                         <Image Width="30" Grid.Column="0" Source="Assets/launch.png" HorizontalAlignment="Left"></Image>
@@ -182,7 +182,7 @@
                             <Border Grid.Column="1"></Border>
 
                             <Border Grid.Column="2" CornerRadius="10">
-                                <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
+                                <Button Tag="{Binding Name}" Click="EditPreset_Click" Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
                                     <Image Width="40" Source="Assets/edit.png" HorizontalAlignment="Center"></Image>
                                 </Button>
                             </Border>
@@ -190,7 +190,7 @@
                             <Border Grid.Column="3"></Border>
 
                             <Border Grid.Column="4" CornerRadius="10">
-                                <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                                <Button Tag="{Binding Name}" Click="RemovePreset_Click" Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
                                     <Image Source="Assets/delete.png" HorizontalAlignment="Center"></Image>
                                 </Button>
                             </Border>
@@ -215,7 +215,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
+                    <Button Click="CreateNewPreset_Click" Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="30" Grid.Column="0" Source="Assets/add-item.png"></Image>
                             <TextBlock Text="Создать новый" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
@@ -226,7 +226,7 @@
                 <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
 
                 <Border Grid.Column="2" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                    <Button Click="DeleteAllPresets_Click" Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="30" Grid.Column="0" Source="Assets/delete.png"></Image>
                             <TextBlock Text="Удалить все" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>

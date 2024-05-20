@@ -73,7 +73,7 @@
         </Style>
     </Window.Resources>
 
-    <Border Background="#D9DAF7">
+    <Border CornerRadius="10" Background="#D9DAF7">
         <Grid x:Name="Main">
             <Grid.RowDefinitions >
                 <RowDefinition Height="20*" />
@@ -112,7 +112,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0" CornerRadius="10">
-                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
+                    <Button Click="BackToMainWindow_Click" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="20" Grid.Column="0" Source="Assets/arrow_left.png"/>
                             <TextBlock Text="Назад" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
@@ -123,7 +123,7 @@
                 <Border Grid.Column="1"></Border>
 
                 <Border Grid.Column="2" Background="#77B3E5" CornerRadius="10">
-                    <TextBlock Text="Мои пресеты" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
+                    <TextBlock  Text="Редактирование пресета" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
                 </Border>
 
                 <Border Grid.Column="3"></Border>
@@ -159,13 +159,13 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100*"/>
+                                <RowDefinition Height="0*"/>
                                 <RowDefinition>
-                                    <RowDefinition.Resources>
+                                    <!--<RowDefinition.Resources>
                                         <Style TargetType="RowDefinition">
                                             <Setter Property="Height" Value="{Binding IsEdited}"></Setter>
                                         </Style>
-                                    </RowDefinition.Resources>
+                                    </RowDefinition.Resources>-->
                                 </RowDefinition>
                             </Grid.RowDefinitions>
 
@@ -195,7 +195,7 @@
                                 <Border Grid.Column="1"></Border>
 
                                 <Border Grid.Column="2" CornerRadius="10">
-                                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
+                                    <Button Click="UpProgram_Click" Tag="{Binding Name}" Style="{DynamicResource ButtonStyle_0}" Background="#FFFFFF">
                                         <Image Width="40" Source="Assets/arrow_up.png" HorizontalAlignment="Center"></Image>
                                     </Button>
                                 </Border>
@@ -203,15 +203,15 @@
                                 <Border Grid.Column="3"></Border>
 
                                 <Border Grid.Column="4" CornerRadius="10">
-                                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5" Click="Edit_Click">
+                                    <Button Click="EditProgram_Click" Tag="{Binding Name}" Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
                                         <Image Width="40" Source="Assets/edit.png" HorizontalAlignment="Center"></Image>
                                     </Button>
                                 </Border>
 
                                 <Border Grid.Column="5"></Border>
 
-                                <Border Grid.Column="6" CornerRadius="10">
-                                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                                <Border  Grid.Column="6" CornerRadius="10">
+                                    <Button Click="RemoveProgram_Click" Tag="{Binding Name}" Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
                                         <Image Width="40" Source="Assets/delete.png" HorizontalAlignment="Center"></Image>
                                     </Button>
                                 </Border>
@@ -219,7 +219,7 @@
 
                             <!---->
 
-                            <Grid Grid.Row="1"  Width="{Binding Path=ActualWidth, ElementName=PresetMenu}" Height="30" Margin="5" HorizontalAlignment="Stretch">
+                            <!--<Grid Grid.Row="1"  Width="{Binding Path=ActualWidth, ElementName=PresetMenu}" Height="30" Margin="5" HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30*"/>
                                     <ColumnDefinition Width="10*"/>
@@ -256,7 +256,9 @@
 
                                     </TextBox>
                                 </Border>
-                            </Grid>
+                            </Grid>-->
+                            
+                            
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -277,7 +279,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
+                    <Button Click="AddProgram_Click" Style="{DynamicResource ButtonStyle_0}" Background="#77B3E5">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="30" Grid.Column="0" Source="Assets/add-item.png"></Image>
                             <TextBlock Text="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>
@@ -288,7 +290,7 @@
                 <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Border>
 
                 <Border Grid.Column="2" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Button Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
+                    <Button Click="RemoveAllProgramms_Click"  Style="{DynamicResource ButtonStyle_0}" Background="#E1B4B7">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="30" Grid.Column="0" Source="Assets/delete.png"></Image>
                             <TextBlock Text="Удалить все" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"/>

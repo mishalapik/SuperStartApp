@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -70,7 +71,8 @@ namespace MultiLaunch
                     {
                         while (reader.Read())
                         {
-                            MessageBox.Show(reader.GetString(0));
+                            string path = reader.GetString(0);
+                            Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
                         }
                     }
                 }
@@ -97,7 +99,11 @@ namespace MultiLaunch
         {
             Button button = sender as Button;
             string text = button.Tag.ToString();
-            MessageBox.Show($"Редактирование пресета {text}");
+            Edit_Preset editPresetWindow = new Edit_Preset(text);
+            editPresetWindow.Show();
+            this.Close();
+            currentPreset = text;
+            
         }
         private void RemovePreset_Click(object sender, RoutedEventArgs e)
         {
