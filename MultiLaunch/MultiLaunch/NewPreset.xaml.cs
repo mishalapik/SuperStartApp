@@ -20,8 +20,10 @@ namespace MultiLaunch
     /// </summary>
     public partial class NewPreset : Window
     {
-        public NewPreset()
+        MainWindow prev;
+        public NewPreset(MainWindow mainWindow)
         {
+            prev = mainWindow;
             InitializeComponent();
         }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -34,7 +36,10 @@ namespace MultiLaunch
                     string text = textBox.Text;
                     Edit_Preset newPreset = new Edit_Preset(text);
                     newPreset.Show();
+                    prev.Close();
                     this.Close();
+                    
+                    
                 }
                 
 

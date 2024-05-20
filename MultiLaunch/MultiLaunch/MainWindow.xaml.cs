@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace MultiLaunch
 {
@@ -29,13 +30,13 @@ namespace MultiLaunch
         };
 
         string currentPreset;
+        public ObservableCollection<Preset> PresetList { get; set; }
         public MainWindow()
         {
-            var PresetList = new List<Preset>
-            {
-                
-            };
+            
+
             InitializeComponent();
+            PresetList = new ObservableCollection<Preset>();
             string connectionString = "Data Source=SuperStartApp.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -109,15 +110,45 @@ namespace MultiLaunch
         {
             Button button = sender as Button;
             string text = button.Tag.ToString();
-            MessageBox.Show($"Удаление пресета {text}");
+            string connectionString = "Data Source=SuperStartApp.db;Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string updateQuery = $"DELETE FROM programs WHERE preset_name = '{text}';";
+                using (SQLiteCommand command = new SQLiteCommand(updateQuery, connection))
+                {
+                    int rowsAffected = command.ExecuteNonQuery();
+                    for (int i = 0; i < PresetList.Count; i++)
+                    {
+                        if (PresetList[i].Name.ToString()==text)
+                        {
+                            PresetList.Remove(PresetList[i]);
+                            PresetMenu.ItemsSource = PresetList;
+                        }
+                    }
+
+                }
+
+            }
         }
         private void DeleteAllPresets_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Удаляем все пресеты");
+            string connectionString = "Data Source=SuperStartApp.db;Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string truncateQuery = $"DELETE FROM programs;";
+                using (SQLiteCommand command = new SQLiteCommand(truncateQuery, connection))
+                {
+                    int rowsAffected = command.ExecuteNonQuery();
+                    PresetList.Clear();
+                }
+
+            }
         }
         private void CreateNewPreset_Click(object sender, RoutedEventArgs e)
         {
-            NewPreset preset = new NewPreset();
+            NewPreset preset = new NewPreset(this);
             preset.Show();
             //MessageBox.Show("Создаем новый пресет");
         }
