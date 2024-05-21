@@ -15,7 +15,7 @@
         FontFamily="Inter"
         FontSize="20">
 
-    <Border CornerRadius="10" Background="White" Height="70" Width="700" HorizontalAlignment="Center">
+    <Border CornerRadius="10" Background="White" Height="50" Width="700" HorizontalAlignment="Center">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
@@ -23,7 +23,7 @@
             <Grid Grid.Column="0">
                 <Border CornerRadius="10" VerticalAlignment="Center">
                     <!--#FF3C7FB1-->
-                    <TextBox KeyDown="TextBox_KeyDown" Margin="10" FontSize="50" Height="50" VerticalAlignment="Center" Background="Transparent" ></TextBox>
+                    <TextBox KeyDown="TextBox_KeyDown" Margin="5" FontSize="40" Height="50" VerticalAlignment="Center" Background="Transparent" ></TextBox>
                 </Border>
                 
             </Grid>

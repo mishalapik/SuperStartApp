@@ -59,6 +59,13 @@ namespace MultiLaunch
 
             PresetMenu.ItemsSource = PresetList;
         }
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
         private void OpenProgramsByPreset(string presetName)
         {
             string connectionString = "Data Source=SuperStartApp.db;Version=3;";
@@ -96,11 +103,18 @@ namespace MultiLaunch
                 }
             }
         }
+        private void CenterWindowOnParent(Window parent, Window child)
+        {
+            child.WindowStartupLocation = WindowStartupLocation.Manual;
+            child.Left = parent.Left + (parent.Width - child.Width) / 2;
+            child.Top = parent.Top + (parent.Height - child.Height) / 2;
+        }
         private void EditPreset_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             string text = button.Tag.ToString();
             Edit_Preset editPresetWindow = new Edit_Preset(text);
+            CenterWindowOnParent(this, editPresetWindow);
             editPresetWindow.Show();
             this.Close();
             currentPreset = text;
@@ -149,6 +163,7 @@ namespace MultiLaunch
         private void CreateNewPreset_Click(object sender, RoutedEventArgs e)
         {
             NewPreset preset = new NewPreset(this);
+            CenterWindowOnParent(this, preset);
             preset.Show();
             //MessageBox.Show("Создаем новый пресет");
         }

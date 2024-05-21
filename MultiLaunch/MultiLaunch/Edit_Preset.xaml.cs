@@ -166,7 +166,7 @@ namespace MultiLaunch
         }
         private void AddProgram_Click( object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog { CheckFileExists = false };
             string selectedFilePath;
             string programName;
             // Устанавливаем свойства диалогового окна (необязательно)
